@@ -1,0 +1,11 @@
+{{ define "header_css" }}{{ end }}
+
+{{ define "main" }}
+{{/* https://tailwindcomponents.com/component/blog-post */}}
+<article class="max-w-full mt-3 prose-sm prose sm:prose lg:prose-lg xl:prose-xl">
+    <h1>
+        {{ .Title }}
+    </h1>
+    {{ .Content }}
+</article>
+{{ end }}

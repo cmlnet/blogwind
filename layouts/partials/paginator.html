@@ -1,0 +1,42 @@
+{{- $pag := $.Paginator -}}
+{{ if gt $pag.TotalPages 1 }}
+    <nav aria-label="page navigation" class="flex p-4">
+        <ul class="flex mx-auto border rounded list-reset border-grey-light whitespace-nowrap">
+            <!-- Don't show on 1st and 2nd page -->
+            {{ if and (ne $pag.PageNumber 1) (ne $pag.PageNumber 2) }}
+                <li>
+                    <a href="{{ $pag.First.URL }}" rel="first" class="block px-3 py-2 text-blue-700 border-r hover:text-white hover:bg-blue-800 border-grey-light" title="{{ i18n "first" }}">|<</a>
+                </li>
+            {{ end }}
+
+            {{ if $pag.HasPrev  }}
+                <li>
+                    <a href="{{ $pag.Prev.URL }}" rel="prev" class="block px-3 py-2 text-blue-700 border-r hover:text-white hover:bg-blue-800 border-grey-light" title="{{ i18n "previous" }}"><</a>
+                </li>
+            {{ end }}
+
+            {{ range $pag.Pagers }}
+                {{ if eq . $pag }} <!-- Current Page -->
+                    <li><a href="{{ .URL }}" class="block px-3 py-2 text-white bg-blue-800 border-r border-grey-light">{{ .PageNumber }}</a></li>
+                {{ else if and (ge .PageNumber (sub $pag.PageNumber 1)) (le .PageNumber (add $pag.PageNumber 1)) }}
+                    {{ $.Scratch.Set "dot_rendered" false }} <!-- Render prev 2 page and next 2 pages -->
+                    <li><a href="{{ .URL }}" class="block px-3 py-2 text-blue-700 border-r hover:text-white hover:bg-blue-800 border-grey-light">{{ .PageNumber }}</a></li>
+                {{ else if eq ($.Scratch.Get "dot_rendered") false }} <!-- render skip pages -->
+                    {{ $.Scratch.Set "dot_rendered" true }}
+                    <li><a class="block px-3 py-2 text-blue-700 border-r border-grey-light">...</a></li>
+                {{ end }}
+            {{ end }}
+
+            {{ if $pag.HasNext }}<!-- ToDo: Fix border when last is not displayed -->
+                <li>
+                    <a href="{{ $pag.Next.URL }}" rel="next" class="block px-3 py-2 text-blue-700 border-r hover:text-white hover:bg-blue-800 border-grey-light" title="{{ i18n "next" }}">></a>
+                </li>
+            {{ end }}
+
+            <!-- Don't show on last and 2nd last page -->
+            {{ if and (ne $pag.PageNumber $pag.TotalPages) ((ne $pag.PageNumber (sub $pag.TotalPages 1))) }}
+                <li><a href="{{ $pag.Last.URL }}" rel="last" class="block px-3 py-2 text-blue-700 hover:text-white hover:bg-blue-800" title="{{ i18n "last" }}">>|</a></li>
+            {{ end }}
+        </ul>
+    </nav>
+{{ end }}

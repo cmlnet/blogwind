@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Title }}</title>
+    {{/* description with fallback to global parameter */}}
+    {{- with.Description -}}
+      <meta name="description" content="{{ . }}">
+    {{- else -}}
+      <meta name="description" content="{{ $.Site.Params.description }}">
+    {{- end -}}
+    {{/* Including Hugo's OpenGraph template */}}
+    {{ template "_internal/opengraph.html" . }}
+    {{/* Including Hugo's Twitter template */}}
+    {{ template "_internal/twitter_cards.html" . }}
+    {{/* styles */}}
+    {{- $options := dict "inlineImports" true -}}
+    {{- $styles := resources.Get "css/styles.css" -}}
+    {{- $styles = $styles | resources.PostCSS $options -}}
+    {{- if  hugo.IsProduction  -}}
+      {{- $styles = $styles | minify | fingerprint | resources.PostProcess -}}
+    {{- end -}}
+    <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
+    {{/* favicons */}}
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/icons/site.webmanifest">
+    {{/* RSS feed */}}
+    {{ with .OutputFormats.Get "rss" -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
+ </head>
+  <body class="font-sans">
+    <div class="flex flex-col min-h-screen">
+        {{- partial "header.html" . -}}
+        <div class="container flex-grow w-auto mx-3 mt-4 lg:mx-auto xl:w-3/5" id="content">
+            {{- block "main" . }}{{- end }}
+        </div>
+        {{- partialCached "footer.html" . -}}
+    </div>
+  </body>
+</html>

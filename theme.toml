@@ -1,0 +1,13 @@
+name = "blogwind"
+license = "MIT"
+licenselink = "https://github.com/cmlnet/blogwind/blob/master/LICENSE"
+description = "blogwind, a blog theme for hugo based on TailwindCSS"
+homepage = "https://github.com/cmlnet/blogwind"
+tags = ["blog", "tailwindcss", "personal"]
+features = ["blog"]
+min_version = "0.79"
+
+[original]
+  name = "Blonde"
+  homepage = "https://blonde.netlify.app/"
+  repo = "https://github.com/opera7133/Blonde"

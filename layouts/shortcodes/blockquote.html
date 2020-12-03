@@ -1,0 +1,5 @@
+<!-- Source: https://github.com/shawnohare/hugo-tufte/blob/master/layouts/shortcodes/blockquote.html -->
+<blockquote cite="{{ .Get "cite" }}">
+  {{ .Inner }}
+  <p><cite>{{ .Get "footer" | markdownify }}</cite></p>
+</blockquote>

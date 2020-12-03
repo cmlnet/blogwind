@@ -1,0 +1,47 @@
+{{ define "header_css" }}{{ end }}
+
+{{ define "main" }}
+{{/* https://tailwindcomponents.com/component/blog-post */}}
+<article class="max-w-full prose-sm prose sm:prose lg:prose-lg xl:prose-xl">
+    {{ with .Params.cover }}
+        <div class="relative w-full h-64 mx-auto mb-4 md:mb-0">
+            <div class="absolute bottom-0 left-0 z-10 w-full h-full" style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
+            <img src="{{ . }}" class="absolute top-0 left-0 z-0 object-cover w-full h-full m-0" title="{{ $.Params.coverCaption | plainify | default "cover picture" }}" alt="cover picture" />
+    {{ else }}
+        <div class="relative w-full h-40 mx-auto mb-4 md:mb-0">
+            <div class="absolute bottom-0 left-0 z-10 w-full h-full" style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
+    {{ end }}
+      <div class="absolute bottom-0 left-0 z-20 p-4">
+        <div class="inline-flex items-center justify-center px-4 py-1 mb-2 text-white bg-black">
+            {{ with .Params.categories }}
+                    {{ range . }}
+                    <a class="text-gray-200 no-underline hover:underline" href="{{ "categories" | absURL}}/{{ . | urlize }}">{{ . }}</a>
+                    {{ end }}
+            {{ end }}
+        </div>
+        <h1 class="text-4xl text-white">
+            {{.Title}}
+        </h1>
+      </div>
+    </div>
+
+    {{ with .Params.coverCaption }}
+        <div class="text-xs text-right" >{{ . | safeHTML }}</div>
+    {{ end }}
+    
+    {{- partial "licence.html" . -}}
+
+    {{/* ToDo: Accordion effect for toc */}}
+    <div class="w-full px-4 mx-auto mt-8 lg:px-0">
+        {{ with .Params.toc }}
+            <div class="m-2 bg-blue-800 border border-gray-400 rounded shadow md:float-right">
+                <h2 class="flex items-center justify-between px-5 py-5 m-0 text-2xl text-white select-none" id="toc">{{ i18n "tableOfContents" }}</h2>
+                <div class="px-5 py-2 bg-gray-100 rounded-b">
+                    {{ $.TableOfContents }}
+                </div>
+            </div>
+        {{ end }}
+        {{ .Content }}
+    </div>
+</article>
+{{ end }}

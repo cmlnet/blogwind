@@ -1,0 +1,20 @@
+{{/* Credits: https://github.com/jan-xyz/hugo-module-img-srcset/blob/main/layouts/_default/_markup/render-image.html */}}
+
+{{ $image := .Page.Resources.GetMatch .Destination }}
+
+{{ $tinyImage := $image.Resize "500x" }}
+{{ $smallImage := $image.Resize "800x" }}
+{{ $mediumImage := $image.Resize "1200x" }}
+{{ $largeImage := $image.Resize "1500x" }}
+
+
+<p class="md__image">
+<figure>
+  <source media="(min-width:500px)" srcset={{ $tinyImage.RelPermalink | safeURL }}>
+  <source media="(min-width:800px)" srcset={{ $smallImage.RelPermalink | safeURL }}>
+  <source media="(min-width:1200px)" srcset={{ $mediumImage.RelPermalink | safeURL }}>
+  <source media="(min-width:1500px)" srcset={{ $largeImage.RelPermalink | safeURL }}>
+  <img src="{{ .Destination | safeURL }}" alt="{{ .Title }}" title="{{ .Title }}" style="width:auto;" loading="lazy">
+  <figcaption>{{ .Text | safeHTML }}</figcaption>
+</figure>
+</p>

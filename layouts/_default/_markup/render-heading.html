@@ -1,0 +1,5 @@
+<h{{ .Level }} id="{{ .Anchor | safeURL }}">
+    <a href="#{{ .Anchor | safeURL }}" class="no-underline hover:underline">
+        {{ .Text | safeHTML }}
+    </a>
+</h{{ .Level }}>

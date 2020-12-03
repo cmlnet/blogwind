@@ -1,0 +1,57 @@
+[readingTime]
+one = "Lesezeit: 1 Minute"
+other = "Lesezeit: {{.Count}} Minuten"
+
+[readMore]
+other = "weiterlesen&hellip;"
+
+[tableOfContents]
+other = "Inhaltsverzeichnis"
+
+[changeLang]
+other = "Sprache wechseln"
+
+[date]
+other = "Datum"
+
+[first]
+other = "Anfang"
+
+[previous]
+other = "Zurück"
+
+[next]
+other = "Vor"
+
+[last]
+other = "Ende"
+
+[categories]
+other = "Kategorien"
+
+[tags]
+other = "Tags"
+
+[menu]
+other = "Menü"
+
+[licenced_under]
+other = "Dieses Werk ist lizenziert unter"
+
+[cc-zero]
+other = "CC0 1.0 Universell (CC0 1.0) Public Domain Dedication"
+
+[cc-by]
+other = "Creative Commons Namensnennung 4.0 International (CC BY 4.0)"
+
+[cc-by-sa]
+other = "Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International (CC BY-SA 4.0)"
+
+[cc-by-nd]
+other = "Namensnennung - Keine Bearbeitungen 4.0 International (CC BY-ND 4.0)"
+
+[cc-by-nc]
+other = "Namensnennung-Nicht kommerziell 4.0 International (CC BY-NC 4.0)"
+
+[cc-by-nc-nd]
+other = "Namensnennung - Nicht kommerziell - Keine Bearbeitungen 4.0 International (CC BY-NC-ND 4.0)"

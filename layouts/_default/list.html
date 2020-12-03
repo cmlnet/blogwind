@@ -1,0 +1,43 @@
+{{ define "header_css" }}{{ end }}
+
+{{ define "main" }}
+
+<div class="grid grid-cols-3 gap-4">
+  <div class="col-span-3 mb-3 lg:col-span-2">
+    {{if .IsHome}}
+      {{.Scratch.Set "Paginator" (.Paginate (where .Site.RegularPages "Type" "in" site.Params.mainSections) (.Site.Params.paginator_pages) )}}
+    {{else}}
+      {{.Scratch.Set "Paginator" .Paginator}}
+    {{end}}
+    {{$paginator:=(.Scratch.Get "Paginator")}}
+    {{ range $paginator.Pages }}
+        {{ .Render "summary" }}
+    {{ end }}
+    {{ partial "paginator.html" . }}
+  </div>
+
+  <div class="hidden mt-3 lg:block lg:col-span-1">
+    {{ if .Site.Taxonomies.categories }}
+    <div class="mb-3 panel">
+      <p class="py-3 pl-3 text-xl text-white bg-blue-800 rounded-t">{{ i18n "categories" }}</p>
+      {{ range $key, $value := .Site.Taxonomies.categories }}
+        <a class="block px-4 py-2 text-center text-gray-800 bg-white border hover:bg-gray-200" href="categories/{{ $key | urlize  }}">{{ $key }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+    {{ if .Site.Taxonomies.tags }}
+    <div class="mb-3 panel">
+      <p class="py-3 pl-3 text-xl text-white bg-blue-800 rounded-t">{{ i18n "tags" }}</p>
+      <div class="p-2 bg-white border panel-block">
+        {{- range $termName, $entries := .Site.Taxonomies.tags }}
+        <span
+          class="inline-flex content-center justify-center h-8 px-3 py-2 mb-2 mr-2 leading-4 text-blue-500 bg-gray-200 hover:text-black"><a
+            href="{{ "/tags/" | relLangURL }}{{ $termName | urlize }}">{{ $termName }}</a>
+        </span>
+        {{- end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

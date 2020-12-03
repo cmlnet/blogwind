@@ -1,0 +1,15 @@
+{{/* https://devdojo.com/tailwindcss/playground?component=footer-simple */}}
+<footer class="w-full mt-3 text-gray-100 bg-gray-800">
+    <div
+        class="container flex flex-col flex-wrap px-5 py-10 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap">
+        <div class="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
+            <p class="flex items-center justify-center font-bold md:justify-start">
+                <a href="{{ .Site.BaseURL }}" >
+                    <img class="w-auto h-10 mr-3 fill-current" width="54" height="54" src="/logo-path.svg" alt="Logo">
+                </a>
+                c-m-l.net
+            </p>
+            <p class="mt-2 text-sm text-gray-500">Powered by <a href="https://gohugo.io/" class="underline hover:text-gray-500" rel="nofollow">Hugo</a>, Theme <a href="https://github.com/cmlnet/blogwind" class="underline hover:text-gray-500">Blogwind</a>.</p>
+        </div>
+    </div>
+</footer>

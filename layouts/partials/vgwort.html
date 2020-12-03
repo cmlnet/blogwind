@@ -1,0 +1,10 @@
+{{/* Partial for inlcluding the tracking pixel of VG Wort; atm failry simple */}}
+{{/* It expects the parameter "vgwort" in the frontmatter containing the public code for the pixel */}}
+{{/* Documentation from VG Wort: https://tom.vgwort.de/Documents/pdfs/dokumentation/metis/DOC_Urhebermeldung.pdf */}}
+{{/* ToDo:
+- Work with codes from CSV file 
+- Check length of article before including pixel */}}
+
+{{ with .Params.vgwort }}
+    <img src="https://vg08.met.vgwort.de/na/{{ . }}" width="0" height="0" alt="VG Wort tracking pixel">
+{{ end }}
