@@ -7,6 +7,10 @@ tags = ["blog", "tailwindcss", "personal"]
 features = ["blog"]
 min_version = "0.79"
 
+[author]
+  name = "Christian Humm"
+  homepage = "https://www.c-m-l.net"
+
 [original]
   name = "Blonde"
   homepage = "https://blonde.netlify.app/"
