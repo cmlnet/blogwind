@@ -29,13 +29,13 @@
     <link rel="manifest" href="/icons/site.webmanifest">
     {{/* RSS feed */}}
     {{ with .OutputFormats.Get "rss" -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end -}}
  </head>
   <body class="font-sans">
     <div class="flex flex-col min-h-screen">
         {{- partial "header.html" . -}}
-        <div class="container flex-grow w-auto mx-3 mt-4 lg:mx-auto xl:w-3/5" id="content">
+        <div class="container flex-grow w-full mx-auto mt-4 sm:px-3" id="content">
             {{- block "main" . }}{{- end }}
         </div>
         {{- partialCached "footer.html" . -}}
