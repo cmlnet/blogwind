@@ -42,7 +42,7 @@ Add *blogwind* as a git submodule in your project:
 git submodule add https://github.com/cmlnet/blogwind.git themes/blogwind
 ```
 
-Then add in your config theme = "blogwind".
+Then add in your config `theme = "blogwind"`.
 
 Additionally, you have to [npm](https://www.npmjs.com/get-npm) installed and to run the following command:
 
