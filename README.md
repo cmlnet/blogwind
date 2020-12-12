@@ -4,6 +4,10 @@
 
 **The theme is still in an early version so expect bugs. All feedback is welcomed.**
 
+## Demo
+
+You can see the theme in action at [my personal blog](https://www.c-m-l.net/).
+
 ## Features
 
 * Minimal JavaScript
