@@ -11,19 +11,21 @@
 
 {{/* Range through these categories alphabetically */}}
 {{ range sort $categories }}
-  <section class="w-full m-3 lg:max-w-full ">
+  <section class="w-full m-3 mx-auto lg:max-w-full">
     {{/* Output the name of the category */}}
     <h1 class="text-2xl font-bold">{{ . }}</h1>
       {{/* Range through the pages of the category */}}
       {{ range where $.Pages ".Params.categories" "intersect" (slice . ) }}
-        <div class="mt-3 border border-gray-400 rounded-b md:grid-cols-2 lg:flex lg:px-0 hover:shadow">
+      <div class="flex w-full m-3 mx-auto border border-gray-400 rounded lg:max-w-full lg:px-0 hover:shadow">
           {{ if .Params.cover }}
             {{ with .Resources.GetMatch .Params.cover }}
               {{ $image := .Resize "x500" }}
-              <div class="flex-none h-48 overflow-hidden text-center bg-cover rounded-t lg:h-auto lg:w-48 lg:rounded-t-none lg:rounded-l" style="background-image: url('{{ $image.RelPermalink }}')" title="{{ .Params.coverCaption | plainify | default "cover picture" }}" alt="cover picture"></div>
+              <div class="w-full h-56">
+                <a href="{{ $.RelPermalink }}"><img class="object-cover w-full h-full rounded-t" src="{{ $image.RelPermalink }}" title="{{ .Params.coverCaption | plainify | default "cover picture" }}" alt="cover picture"></a>
+              </div>
             {{ end }}
           {{ end }}
-          <div class="flex flex-col justify-between w-full max-w-full px-3 pt-2 leading-normal bg-white">
+          <div class="flex flex-col justify-between w-full max-w-full p-3 pt-2 bg-white">
             <article>
               <a href="{{ .RelPermalink }}" class="no-underline"><h2 class="text-2xl font-bold">{{ .Title }}</h2></a>
               <a href="{{ .RelPermalink }}" class="no-underline"><p class="text-base leading-normal">{{ .Summary | plainify }} <br /><em>{{ i18n "more" | safeHTML }}</em></p></a>

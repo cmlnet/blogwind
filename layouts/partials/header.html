@@ -1,8 +1,13 @@
 <div class="sticky top-0 z-50 flex flex-wrap items-center justify-between p-6 bg-blue-800">
     <div class="flex items-center flex-shrink-0 mr-6 text-white">
-      {{/* TODO: Make logo a parameter */}}
+      {{/* Logo */}}
       <a href="{{ .Site.BaseURL }}">
-        <img class="w-12 h-12 mr-2 fill-current" width="54" height="54" src="/logo-path.svg" alt="Logo" title="{{ .Site.Title }}" />
+        {{ with .Site.Params.Logo }}
+          {{ $logo := resources.Get . }}
+          <img class="w-12 h-12 mr-2 fill-current" width="54" height="54" src="{{ . | relURL }}" alt="Logo" title="{{ $.Site.Title }}" />
+        {{ else }}
+          <span class="text-lg font-bold">{{ .Site.Title }}</span>
+        {{ end }}
       </a>
     </div>
     <div class="block lg:hidden">

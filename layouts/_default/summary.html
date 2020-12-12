@@ -1,14 +1,14 @@
-<div class="w-full mt-3 border border-gray-400 rounded-b lg:max-w-full lg:px-0 hover:shadow">
+<div class="w-full m-3 mx-auto border border-gray-400 rounded lg:max-w-full lg:px-0 hover:shadow">
       {{ if .Params.cover }}
         {{ with .Resources.GetMatch .Params.cover }}
           {{ $image := .Resize "x500" }}
           <div class="w-full h-56">
-            <a href="{{ $.RelPermalink }}"><img class="object-cover w-full h-full" src="{{ $image.RelPermalink }}" title="{{ .Params.coverCaption | plainify | default "cover picture" }}" alt="cover picture"></a>
+            <a href="{{ $.RelPermalink }}"><img class="object-cover w-full h-full rounded-t" src="{{ $image.RelPermalink }}" title="{{ .Params.coverCaption | plainify | default "cover picture" }}" alt="cover picture"></a>
           </div>
         {{ end }}
       {{ end }}
       <div class="flex flex-col justify-between w-full max-w-full p-3 pt-2 bg-white">
-        <div class="inline-flex items-center w-full h-auto prose text-gray-800 align-middle">
+        <div class="inline-flex items-center w-full h-auto prose text-gray-800 align-middle sm:text-sm">
           <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}" class="inline-flex">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="20px" width="20px"  class="mr-1">
               <title id="icon-readingtime">{{ i18n "date"  }}</title>
