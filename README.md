@@ -102,14 +102,14 @@ If they are found then they will be included in head.
 
 ## ToDo
 
-[ ] Documentation
-[ ] Switch from a Flexbox to a GridCSS based layout
-[ ] Refactor CSS
-[ ] Secure Headers
-[ ] Build in search
-[ ] Schema markup
-[ ] 404 page
-[ ] Refactor HTML and CSS
+- [ ] Documentation
+- [ ] Switch from a Flexbox to a GridCSS based layout
+- [ ] Refactor CSS
+- [ ] Secure Headers
+- [ ] Build in search
+- [ ] Schema markup
+- [ ] 404 page
+- [ ] Refactor HTML and CSS
 
 ## Credits
 
