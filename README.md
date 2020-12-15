@@ -19,9 +19,12 @@ You can see the theme in action at [my personal blog](https://www.c-m-l.net/).
 
 ### As a module
 
-Add the following line to your config:
+Add the following lines to your config:
 
 ```toml
+[build]
+writeStats = true
+
 [module]
   [[module.imports]]
     disable = false
@@ -46,7 +49,12 @@ Add *blogwind* as a git submodule in your project:
 git submodule add https://github.com/cmlnet/blogwind.git themes/blogwind
 ```
 
-Then add in your config `theme = "blogwind"`.
+Then add in your config `theme = "blogwind"` as well as the following lines to get CSS purging:
+
+```toml
+[build]
+writeStats = true
+```
 
 Additionally, you have to [npm](https://www.npmjs.com/get-npm) installed and to run the following command:
 
