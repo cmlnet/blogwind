@@ -11,8 +11,10 @@
 		"postcss": "^8.1.10",
 		"postcss-cli": "^8.3.0",
 		"postcss-purgecss": "^2.0.3",
+		"stylelint": "^13.8.0",
+		"stylelint-config-standard": "^20.0.0",
 		"tailwindcss": "^2.0.1"
 	},
 	"name": "blogwind",
-	"version": "0.1.0"
+	"version": "0.2.0"
 }
