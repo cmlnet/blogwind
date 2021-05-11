@@ -21,7 +21,7 @@
             {{ with .Resources.GetMatch .Params.cover }}
               {{ $image := .Resize "x500" }}
               <div class="w-full h-56">
-                <a href="{{ $.RelPermalink }}"><img class="object-cover w-full h-full rounded-t" src="{{ $image.RelPermalink }}" title="{{ .Params.coverCaption | plainify | default "cover picture" }}" alt="cover picture"></a>
+                <a href="{{ .RelPermalink }}"><img class="object-cover w-full h-full rounded-t" src="{{ $image.RelPermalink }}" title="{{ .Params.coverCaption | plainify | default "cover picture" }}" alt="cover picture"></a>
               </div>
             {{ end }}
           {{ end }}
