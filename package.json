@@ -1,20 +1,35 @@
 {
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/cmlnet/blogwind.git"
-	},
-	"dependencies": {},
-	"devDependencies": {
-		"@tailwindcss/typography": "^0.4.0",
-		"autoprefixer": "^10.2.5",
-		"postcss": "^8.2.15",
-		"postcss-cli": "^8.3.1",
-		"postcss-purgecss": "^2.0.3",
-		"stylelint": "^13.13.1",
-		"stylelint-config-standard": "^22.0.0",
-		"tailwindcss": "^2.1.2"
-	},
-	"name": "blogwind",
-	"version": "0.2.1"
+ "comments": {
+  "dependencies": {},
+  "devDependencies": {
+   "@fullhuman/postcss-purgecss": "project",
+   "@tailwindcss/typography": "project",
+   "autoprefixer": "project",
+   "postcss": "project",
+   "postcss-cli": "project",
+   "stylelint": "project",
+   "stylelint-config-standard": "project",
+   "tailwindcss": "project"
+  }
+ },
+ "dependencies": {
+  "package.json": "^2.0.1"
+ },
+ "devDependencies": {
+  "@fullhuman/postcss-purgecss": "^4.0.3",
+  "@tailwindcss/typography": "^0.4.0",
+  "autoprefixer": "^10.2.5",
+  "postcss": "^8.2.15",
+  "postcss-cli": "^8.3.1",
+  "stylelint": "^13.13.1",
+  "stylelint-config-standard": "^22.0.0",
+  "tailwindcss": "^2.1.2"
+ },
+ "license": "MIT",
+ "name": "blogwind",
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/cmlnet/blogwind.git"
+ },
+ "version": "0.2.1"
 }

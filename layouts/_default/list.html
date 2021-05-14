@@ -16,10 +16,10 @@
     {{ partial "paginator.html" . }}
   </div>
 
-  <div class="hidden mt-3 lg:block lg:col-span-1">
+  <div class="hidden mt-10 lg:block lg:col-span-1">
     {{ if .Site.Taxonomies.categories }}
     <div class="mb-3 panel">
-      <p class="py-3 pl-3 text-xl text-white bg-blue-800 rounded-t">{{ i18n "categories" }}</p>
+      <p class="py-3 pl-3 text-xl text-white bg-blue-800">{{ i18n "categories" }}</p>
       {{ range $key, $value := .Site.Taxonomies.categories }}
         <a class="block px-4 py-2 text-center text-gray-800 bg-white border hover:bg-gray-200" href="categories/{{ $key | urlize  }}">{{ $key }}</a>
       {{ end }}
@@ -27,7 +27,7 @@
     {{ end }}
     {{ if .Site.Taxonomies.tags }}
     <div class="mb-3 panel">
-      <p class="py-3 pl-3 text-xl text-white bg-blue-800 rounded-t">{{ i18n "tags" }}</p>
+      <p class="py-3 pl-3 text-xl text-white bg-blue-800">{{ i18n "tags" }}</p>
       <div class="p-2 bg-white border panel-block">
         {{- range $termName, $entries := .Site.Taxonomies.tags }}
         <span

@@ -1,6 +1,6 @@
 [readingTime]
-one = "Lesezeit: 1 Minute"
-other = "Lesezeit: {{.Count}} Minuten"
+one = "1 Minute"
+other = "{{.Count}} Minuten"
 
 [readMore]
 other = "weiterlesen&hellip;"
