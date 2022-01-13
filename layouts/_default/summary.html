@@ -1,4 +1,4 @@
-<div class="w-full m-3 mx-auto prose lg:max-w-full lg:px-0 hover:shadow-md lg:prose-xl">
+<div class="w-full m-3 mx-auto prose shadow-md shadow-gray-100 lg:max-w-full lg:px-0 lg:prose-xl">
       {{ if .Params.cover }}
         {{ with .Resources.GetMatch .Params.cover }}
           {{ $image := .Resize "x500" }}
@@ -7,22 +7,23 @@
           </div>
         {{ end }}
       {{ end }}
-      <div class="w-full max-w-full bg-white">
-        <div class="inline-flex w-full h-auto text-gray-700">
-          <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}" class="inline-flex">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="20px" width="20px" class="h-auto mr-1">
-              <title id="icon-readingtime">{{ i18n "date" }}</title>
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
-            </svg>
-            {{ .Date.Format $.Site.Params.dateFormat }}
-          </time>
-          &nbsp;|&nbsp;
+      <div class="w-full max-w-full p-3 bg-white">
+        <div class="inline-flex w-full h-auto">
+
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}" class="inline-flex">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="20px" width="20px" class="h-auto mr-1">
+                <title id="icon-readingtime">{{ i18n "date" }}</title>
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+              </svg>
+              {{ .Date.Format $.Site.Params.dateFormat }}
+            </time>
+            &nbsp;•&nbsp;
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20px" height="20px" class="h-auto mr-1">
-            <title id="icon-readingtime">{{ i18n "readingTime" .ReadingTime }}</title>
+            <title id="icon-readingtime">{{ i18n "readingTimeLabel" }}</title>
             <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
           </svg>
           {{ i18n "readingTime" .ReadingTime }}
-          &nbsp;|&nbsp;
+          &nbsp;•&nbsp;
           {{/* ToDo: Better visual seperation of two or more categories */}}
           <div class="inline-flex">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20px" height="20px" class="h-auto mr-1">
@@ -45,9 +46,8 @@
         </article>
         <div class="pt-4 pb-2">
           {{ range .Params.tags }}
-              <a href="/tags/{{ . | urlize }}" class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full hover:underline hover:shadow">#{{ . }}</a>
+              <a href="/tags/{{ . | urlize }}" class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 no-underline bg-gray-100 hover:shadow">#{{ . | lower }}</a>
           {{ end }}
         </div>
     </div>
 </div>
-<hr class="border-black" />

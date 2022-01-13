@@ -1,3 +1,6 @@
+[readingTimeLabel]
+other = "Lesezeit"
+
 [readingTime]
 one = "1 minute"
 other = "{{.Count}} minutes"
