@@ -41,9 +41,9 @@
         {{- with .Params.toc -}}
             {{/* ToDo: Make toc sticky */}}
             {{/* ToDo: Accordion effect for toc */}}
-            <div class="p-1 m-2 bg-blue-800 border border-gray-400 rounded shadow lg:float-right">
-                <h2 class="flex items-center justify-between px-5 py-5 m-0 text-2xl text-white select-none" id="toc">{{ i18n "tableOfContents" }}</h2>
-                <div class="px-5 py-2 bg-gray-100 rounded-b">
+            <div class="border lg:float-right border-sky-800">
+                <h2 class="p-1 m-auto text-xl text-center text-white select-none bg-sky-800" id="toc">{{ i18n "tableOfContents" }}</h2>
+                <div class="p-1 bg-gray-100">
                     {{ $.TableOfContents }}
                 </div>
             </div>

@@ -1,5 +1,5 @@
 {{/* Credits: https://discourse.gohugo.io/t/a-quick-creative-commons-licence-with-options/26857 */}}
-{{/* ToDo: Add more licences and maybe better logic to distinguish between them, maybe with split? */}}
+{{/* ToDo: Add more licenses and maybe better logic to distinguish between them, maybe with split? */}}
 {{/* ToDo: Make a Hugo mod */}}
 {{ $icon := "" }}
 {{ $url := "" }}
@@ -25,10 +25,10 @@
         {{ $url = "https://creativecommons.org/licenses/by-nc-nd/4.0/" }}
     {{ end }}
 
-    <div class="flex items-center justify-center m-auto mt-2 bg-gray-100 border border-gray-400 rounded md:w-3/4">
+    <div class="flex p-1 mx-auto mt-2 bg-gray-100 border border-sky-800 md:w-3/4">
             <a rel="license" href="{{ $url }}">
-                <img class="float-left p-0 mx-2 align-middle" alt="Creative Commons Licence" src="/licence-icons/{{ $icon }}" width="120px" height="42px" />
+                <img class="float-left m-auto" alt="Creative Commons Licence" src="/licence-icons/{{ $icon }}" width="120px" height="42px" />
             </a>
-            <p class="pl-3">{{ i18n "licenced_under" }} <a rel="license" href="{{ $url }}">{{ i18n . }}</a>.</p>
+            <p class="m-auto">{{ i18n "licenced_under" }} <a rel="license" href="{{ $url }}">{{ i18n . }}</a>.</p>
     </div>
 {{ end }}
