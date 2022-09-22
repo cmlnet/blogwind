@@ -2,10 +2,12 @@
 
 {{ define "main" }}
 {{/* https://tailwindcomponents.com/component/blog-post */}}
-<article class="max-w-full mx-auto mt-8 prose-sm prose bg-white sm:prose lg:prose-lg xl:prose-xl">
-    <h1>
+<article class="max-w-full prose-sm prose bg-white sm:prose lg:prose-lg xl:prose-xl">
+    <h1 class="px-4 pt-3">
         {{ .Title }}
     </h1>
-    {{ .Content }}
+    <div class="w-full px-4 mx-auto">
+        {{ .Content }}
+    </div>
 </article>
 {{ end }}
